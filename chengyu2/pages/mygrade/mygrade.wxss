@@ -1,0 +1,150 @@
+page{
+  background:#26347C;
+  height:100%;
+}
+.about-me{
+  
+}
+.header{
+  height:270rpx;
+  padding: 0 82rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.header image{
+  width:46rpx;
+  height:49rpx;
+}
+.header>view{
+  text-align: center;
+}
+.header>view view{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+}
+
+.header>view:nth-child(2) view{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+  padding:20rpx 0 11rpx;
+}
+.header>view:nth-child(2) image{
+  width:131rpx;
+  height:131rpx;
+  border:2rpx solid #fff; 
+  border-radius: 50%;
+}
+.header>view:nth-child(3){
+   font-size: 0; 
+}
+.header>view:nth-child(3) image{
+  vertical-align: bottom; 
+  padding-right: 10rpx;
+}
+.header>view:nth-child(3) text{
+  font-size: 34rpx;
+  line-height: 49rpx;
+  color:#fff;
+}
+.header-coin{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.header .bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width:100%;
+  z-index: -1;
+}
+
+.grade-scroll{
+  height: 869rpx;
+  /* background: #fff; */
+}
+.special{
+  margin-top: 31rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction:column;
+}
+.special view{
+  width:30rpx;
+  height:30rpx;
+  border-radius: 50%;
+  background:#ddd;
+  margin-bottom: 8rpx; 
+}
+.special image{
+  width:85rpx;
+  height:116rpx;
+}
+.grade-item{
+  width:690rpx;
+  height:140rpx;
+  margin: 0 auto 10rpx; 
+  background:rgba(116,154,250,1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.grade-item.special-item{
+  background: rgba(0,0,0,.5);
+  opacity:0.5;
+}
+.grade-item .checkpoint{
+  width:97rpx;
+  height:124rpx;
+  position: relative;
+}
+.grade-item .checkpoint image{
+  width:97rpx;
+  height:124rpx;
+}
+.grade-item .checkpoint text{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-80%);
+  color: #fff;
+}
+.usergrade{
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(254,254,254,1);
+}
+.usergrade>view:nth-child(1){
+  padding-bottom: 4rpx;
+  border-bottom: 1rpx solid rgba(255,255,255,.5)
+}
+.usergrade-s-box image{
+  width:38rpx;
+  height:38rpx;
+  margin-right: 8rpx;
+}
+.grade-star{
+   width:276rpx; 
+   text-align: right;
+}
+.grade-star image{
+  width:46rpx;
+  height:46rpx;
+}
+
+
+.tip{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(254,254,254,.5);
+  text-align: center;
+}

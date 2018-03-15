@@ -1,0 +1,67 @@
+<view class="container-box">
+  <view class="about-me">
+    <view class="header">
+        <view>
+          <view>
+           {{userInfo.LevelName}}
+          </view>
+        </view>
+        <view>
+          <view>{{userInfo.NickName}}</view>
+          <image src="{{userInfo['AvatarUrl']}}"></image>
+        </view>
+        <view class='header-coin'>
+          <image src="../../img/gold.png"></image>
+          <text>{{userInfo['Coin']}}</text>
+        </view>
+        <image src="../../img/background2.png" class="bg"></image>
+    </view>
+  </view>
+  <view class="rank-main">
+    <scroll-view scroll-y="true" class="grade-scroll">
+      <view class="grade-item" wx:for="{{levellist}}" wx:for-item="citem" wx:key="index" bindtap='goToplay' data-levelname="{{citem.LevelName}}" data-grade="{{citem.Level}}" data-coin="{{citem.CoinLoss}}">
+        <view class="checkpoint">
+          <image src='../../img/checkpoint.png'></image>
+          <text>{{levelnum[index]}}</text>
+        </view>
+        <view class="usergrade">
+          <view>{{citem.LevelName}}</view>
+          <view class="usergrade-s-box">
+            <image src="../../img/gold.png"></image>
+            <text>{{citem.CoinLoss}}</text>
+          </view>
+        </view>
+        <view class='grade-star' wx:if="{{userInfo.Level-1>index}}">
+          <image src='../../img/star_yellow.png' wx:for="{{starnum[index]}}" wx:key="index"></image>
+        </view>
+        <view class='grade-star' wx:elif="{{userInfo.Level-1==index}}">
+          <image src='../../img/star_white.png'  wx:for="{{nowstar[1]}}" wx:key="index" ></image>
+          <image src='../../img/star_yellow.png' wx:for="{{nowstar[0]}}" wx:key="index" ></image>
+        </view>
+      </view>
+      <view class="grade-item special-item" wx:for="{{nextlevellist}}" wx:key="index">
+        <view class="checkpoint">
+          <image src='../../img/checkpoint.png' ></image>
+          <text>{{levelnum[starnum.length-1]}}</text>
+        </view>
+        <view class="usergrade">
+          <view>{{item.LevelName}}</view>
+          <view class="usergrade-s-box">
+            <image src="../../img/gold.png"></image>
+            <text>{{item.CoinLoss}}</text>
+          </view>
+        </view>
+        <view class='grade-star'>
+          <image src='../../img/star_white.png'  wx:for="{{starnum[starnum.length-1]}}" wx:key="index"></image>
+        </view>
+      </view>
+      <view class="special">
+        <view></view>
+        <view></view>
+        <view></view>
+        <image src="../../img/problem.png"></image>
+      </view>
+    </scroll-view>
+    <view class="tip">选择要挑战的段位，点亮所有星星即可升级段位</view>
+  </view>
+</view>

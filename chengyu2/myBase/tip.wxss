@@ -1,0 +1,3 @@
+tip .flex_center > view {
+  color: red;
+}

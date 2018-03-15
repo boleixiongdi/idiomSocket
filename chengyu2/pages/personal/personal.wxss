@@ -1,0 +1,222 @@
+/* pages/personal/personal.wxss */
+page{
+  background:#26347C;
+  height:100%;
+}
+.about-me{
+  
+}
+.header{
+  height:270rpx;
+  padding: 0 82rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.header image{
+  width:46rpx;
+  height:49rpx;
+}
+.header>view{
+  text-align: center;
+}
+.header>view view{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+}
+
+.header>view:nth-child(2) view{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+  padding:20rpx 0 11rpx;
+}
+.header>view:nth-child(2) image{
+  width:131rpx;
+  height:131rpx;
+  border:2rpx solid #fff; 
+  border-radius: 50%;
+}
+.header>view:nth-child(3){
+  font-size: 0;
+}
+.header>view:nth-child(3) image{
+  vertical-align: bottom;
+  padding-right: 10rpx;
+}
+.header>view:nth-child(3) text{
+  font-size: 34rpx;
+  color:#fff;
+}
+.choose{
+  height:70rpx;
+  line-height: 70rpx; 
+  background:rgba(47,64,145,1);
+  padding: 0 126rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choose view{
+  width: 155rpx;
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  color:#fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+.choose formid-custom view{
+  box-sizing: border-box;
+}
+.choose formid-custom{
+  border-bottom:8rpx solid transparent;
+}
+.choose .active{
+  color:rgba(251,209,43,1);
+  border-bottom:8rpx solid rgba(251,209,43,1); 
+}
+.history{
+  padding:0 30rpx;
+}
+.history>view{
+  height: 89rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid rgba(255, 255, 255, .3);
+  padding:0 21rpx;
+}
+.history>view text:nth-child(1){
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(251,209,43,1);
+  margin-top: 13rpx;
+}
+.history>view text:nth-child(2){
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,.8);
+  margin-top: 13rpx;
+  min-width:130rpx;
+}
+.bottom{
+  margin-top: 231rpx;
+}
+.share{
+  margin: 0 auto;
+  width:261rpx;
+  height:72rpx; 
+  line-height: 72rpx;
+  background:rgba(252,83,65,1);
+  border-radius: 36rpx;
+  text-align: center;
+  color:#fff;
+}
+.relive{
+  margin: 20rpx auto 0;
+  width:261rpx;
+  height:68rpx;
+  font-size:38rpx;
+  line-height: 68rpx;
+  background:rgba(255,255,255,1);
+  border-radius: 36rpx;
+  text-align: center;
+  color:rgba(38,52,124,1);
+}
+.box2{
+  padding-top: 40rpx;
+}
+.box2 image{
+  width:49rpx;
+  height:51rpx;
+  margin-right: 23rpx;
+  vertical-align: middle;
+}
+.his-bar{
+  width:690rpx;
+  /*min-height:121rpx; */
+  transition: all 1S;
+  margin:0 auto;
+  overflow: hidden; 
+  background:rgba(116,154,250,1);
+  border-radius: 20rpx ;
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  line-height:121rpx;
+}
+.charge{
+  width:690rpx;
+  /*min-height:121rpx; */
+  transition: all 1S;
+  margin:0 auto;
+  overflow: hidden; 
+  background:rgba(116,154,250,1);
+  border-radius: 20rpx ;
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  line-height:121rpx;
+  margin-top: 10rpx;
+}
+.box2 .link_service{ 
+  width:86rpx;
+  height:86rpx;
+  position: absolute;
+  right:30rpx;
+  bottom: 231rpx;
+  margin:0;
+}
+.scroll-window{
+  height:220rpx;
+  padding-bottom: 56rpx;
+}
+.his-item{
+  padding-top: 12rpx;
+  border-top: 2rpx solid rgba(255, 255, 255, .2);
+}
+.his-item .item{
+  position: relative;
+  padding: 0 12rpx ;
+  margin-bottom: 18rpx;
+}
+.his-item .item view.dot{
+  height: 15rpx;
+  width:15rpx;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left:16rpx;
+  top:9rpx;
+}
+.item-word{
+  text-align: left;
+  font-size:28rpx;
+  text-indent:28rpx;
+  line-height: 33rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(254,254,254,1);
+}
+
+.relative{
+  position: relative;
+}
+.shareBtn{
+  width:261rpx;
+  height:72rpx;
+  position: absolute;
+  left:50%;
+  top:50%;
+  font-size:40rpx;
+  transform: translate(-50%,-50%);
+  z-index: 20;
+  opacity: 0;
+}
+.opacity{
+  opacity: 0;
+}

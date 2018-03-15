@@ -1,0 +1,77 @@
+<view class="container-box" wx:if="{{step == 1}}">
+  <view class="about-me">
+    <view class="header">
+      <view>
+        <formid-custom bind:taphandle="play" data-state="4">
+          <image src="../../img/person.png"></image>
+          <view>个人信息</view>
+        </formid-custom>
+      </view>
+      <view>
+        <view>{{userInfo['nickName']}}</view>
+        <image src="{{userInfo['avatarUrl']}}"></image>
+      </view>
+      <view>
+        <formid-custom bind:taphandle="play" data-state="5">
+          <image src="../../img/normal.png"></image>
+          <view>常见问题</view>
+        </formid-custom>
+      </view>
+    </view>
+    <view class="grade">
+      <view class="lv">
+        <text>{{indexUserinfo.LevelName}}</text>
+        <!-- <view class="bg">
+          <view></view>
+          <view></view>
+        </view> -->
+      </view>
+      <view class="gold">
+        <image src="../../img/gold_b.png"></image>
+        <text>{{indexUserinfo.Coin}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="click-item">
+    <formid-custom bind:taphandle="play" data-state="1">
+      <view class="item">
+        <image src="../../img/king.png"></image>
+        <view class="person-num">
+          <view>排位赛</view>
+          <text>在线人数 {{onlinePerson}} 人</text>
+        </view>
+      </view>
+    </formid-custom>
+    <formid-custom bind:taphandle="play" data-state="2">
+      <view class="item" style='position:relative;'>
+        <image src="../../img/star.png"></image>
+        <view>好友对战</view>
+      </view>
+      <button open-type="share" class="shareBtn">11111</button>
+    </formid-custom>
+
+    <formid-custom bind:taphandle="play" data-state="3">
+      <view class="item">
+        <image src="../../img/rank.png"></image>
+        <view>好友榜</view>
+      </view>
+    </formid-custom>
+  </view>
+  <formid-custom bind:taphandle="getCoin">
+    <view class="buttom">
+      <view class="btm-word">限时领金币</view>
+      <view class="btn-right">
+        <view class="award">
+          <image src="../../img/gold.png"></image>
+          <text>{{coin}}/60</text>
+        </view>
+        <view class="time">
+          <view>
+            <view style="{{width}}"></view>
+          </view>
+          <text>{{time}}</text>
+        </view>
+      </view>
+    </view>
+  </formid-custom>  
+</view>

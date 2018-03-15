@@ -1,0 +1,83 @@
+/* pages/pay/pay.wxss */
+.title {
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+.title .person_img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin-right: 10rpx;
+  background: azure;
+  vertical-align: middle;
+}
+.title text {
+  vertical-align: middle;
+  font-family: PingFang-SC-Regular;
+  font-size: 34rpx;
+  color: #D13B3A;
+}
+.describe{
+  font-size:37rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(0,0,0,1);
+  text-align: center;
+  margin-bottom: 38rpx;
+}
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  flex-wrap: wrap;
+}
+.main .pay_item{
+  display: inline-block;
+  width:278rpx;
+  height:175rpx; 
+  border-radius: 10rpx;
+  border:2rpx solid #D13B3A;
+  margin-bottom: 28rpx;
+  text-align: center; 
+}
+ .main>formid-custom:nth-child(odd){
+  margin-right: 73rpx;
+} 
+.main .pay_item>view:first-child{
+  margin-top: 31rpx;
+  margin-bottom: 11rpx;
+  font-size:40rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(240,98,117,1);
+}
+.main .pay_item>view:last-child{
+  font-size:37rpx;
+  font-family:STXingkai;
+  color:rgba(237,58,84,1);
+}
+.footer{
+  padding: 0 30rpx; 
+}
+.footer .footer_word{
+  text-align: center;
+  margin-top: 16rpx;
+  margin-bottom: 59.7rpx;
+  font-size:37rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(0,0,0,1);
+}
+.footer .footer_word>text{
+  font-size:40rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(209,59,58,1);
+}
+.footer .footer_image{
+  display: flex;
+  justify-content: space-between;
+  align-items: center ;
+  flex-wrap: wrap;
+}
+.footer .footer_image>image{
+  width:70.5rpx;
+  height:70.8rpx;
+  margin-bottom: 19.2rpx;
+}

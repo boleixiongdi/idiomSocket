@@ -1,0 +1,87 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wx9b2d0cd989d32fce",
+	"projectname": "chengyu2",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "测试",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "Gxb9MIYz6R8Y1ekkZgtuG1sPPBZOdqxctZhq6hVc4iI@cr4dev",
+						"shareKey": "eY6nu-7RFvLLZ2vf9rCmqCrNyCcDFgEmlvE2QKNtwm6EL13dLwvqFCM1x-7wdXOc2gWWQQDrBgs1BxeJRPxfwg~~"
+					}
+				},
+				{
+					"id": 1,
+					"name": "game",
+					"pathName": "pages/game/game",
+					"query": "step=1"
+				},
+				{
+					"id": 2,
+					"name": "demo",
+					"pathName": "pages/demo/demo",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "rank",
+					"pathName": "pages/rank/rank",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mygrade",
+					"pathName": "pages/mygrade/mygrade",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "personal",
+					"pathName": "pages/personal/personal",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "question",
+					"pathName": "pages/question/question",
+					"query": "step=1"
+				},
+				{
+					"id": -1,
+					"name": "friends",
+					"pathName": "pages/game/game",
+					"query": "step=2&userid=self"
+				}
+			]
+		}
+	}
+}

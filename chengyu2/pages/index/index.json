@@ -1,0 +1,10 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#4051A4",
+  "navigationBarTitleText": "成语猜猜乐",
+  "navigationBarTextStyle": "#fff",
+  
+  "usingComponents": {
+    "formid-custom": "../../component/formid-custom/formid-custom"
+  }
+}

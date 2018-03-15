@@ -1,0 +1,59 @@
+<!--pages/rank/rank.wxml wx:if="{{step == 1}}"-->
+<view class="rank">
+  <view class="rank-header">
+    <formid-custom bind:taphandle="getRank" data-state="1">
+      <view class="{{active[0]}}">好友榜</view>
+    </formid-custom>
+    <formid-custom bind:taphandle="getRank" data-state="2">
+      <view class="{{active[1]}}">总榜</view>
+    </formid-custom>
+  </view>
+  <view class="rank-top">
+    <view>
+      <image src="../../img/NO.2.png" class="no no2"></image>
+      <image class="no2-head" src="{{rank[1].AvatarUrl||'../../img/normal.png'}}"></image>
+      <view class="name2">{{rank[1].NickName||'暂无'}}</view>
+      <view class="btn-star">
+        <text>{{rank[1].Coin}}</text>
+        <image src="../../img/gold.png" class="no-star"></image>
+      </view>
+    </view>
+    <view>
+      <image src="../../img/NO.1.png" class="no no1"></image>
+      <image class="no1-head" src="{{rank[0].AvatarUrl||'../../img/normal.png'}}"></image>
+      <view class="name1">{{rank[0].NickName||'暂无'}}</view>
+      <view class="btn-star">
+        <text>{{rank[0].Coin}}</text>
+        <image src="../../img/gold.png" class="no-star"></image>
+      </view>
+    </view>
+    <view>
+      <image src="../../img/NO.3.png" class="no no3"></image>
+      <image class="no3-head" src="{{rank[2].AvatarUrl||'../../img/normal.png'}}"></image>
+      <view class="name3">{{rank[2].NickName||'暂无'}}</view>
+      <view class="btn-star">
+        <text>{{rank[2].Coin}}</text>
+        <image src="../../img/gold.png" class="no-star"></image>
+      </view>
+    </view>
+  </view>
+  <view class="rank-main">
+    <image src="../../img/background.png" class="main-bg"></image>
+    <scroll-view scroll-y="true" bindscrolltolower="addMore" class="rank-scroll">
+       <view class="scroll-item" wx:for="{{rank}}" wx:if="{{index>2}}" data-index="{{index}}" wx:key="index">
+        <view class="item-no">NO.{{index+1}}</view>
+        <view class="no-info">
+          <image src="{{rank[index].AvatarUrl||'../../img/normal.png'}}" class="normal-rank"></image>
+          <view class="play-name">
+            <view>{{rank[index].NickName}}</view>
+            <view>{{rank[index].LevelName}}</view>
+          </view>
+        </view>
+        <view class="btn-star">
+          <text>{{rank[index].Coin}}</text>
+          <image src="../../img/gold.png" class="no-star"></image>
+        </view>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,108 @@
+<!--pages/question/question.wxml-->
+<scroll-view scroll-y="true">
+  <view class="item">
+    <view class="question" bindtap='change' data-index="1">Q1:游戏规则</view>
+    <view class="detail">
+      <view>1.每局游戏题数5道，每道题目游戏时长10秒；</view>
+      <view>2.每道题目总分200分，每迟答一秒少得20分，最后一道题答对按相应回答秒数双倍得分；</view>
+      <view>3.游戏结束胜者获得金币奖励和段位积星，败者无金币奖励且扣除段位积星（直至该段位无星可扣）。</view> 
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="2">Q2:如何通过邀请好友获取金币</view>
+    <view class="detail">
+      <view>通过分享给好友，好友进入小程序游戏视为成功邀请好友，可以获取奖励金币</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="3">Q3:好友榜显示的规则是怎样的？</view>
+    <view class="detail">
+      <view>好友通过好友对战或者玩家分享后可以出现在好友榜上</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="4">Q4:问题对战情况下是怎样计算分数和判断输赢的？</view>
+    <view class="detail">
+      <view>玩家回答正确，速度越快得分越高，答错不得分；答完5道题目累计分数高者胜出</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="5">Q5:排位赛获胜获取的奖励标准是什么？</view>
+    <view class="detail">
+      <view>排位赛获胜可赢取一定的金币奖励（等级越高获取奖励越多），并且获得一颗段位星</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="6">Q6:排位赛失败的惩罚标准是什么？</view>
+    <view class="detail">
+      <view>排位赛失败会输掉入场费并且没有金币奖励，同时将减少一颗段位星</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="7">Q7:玩家如何提升自己的段位？</view>
+    <view class="detail">
+      <view>玩家通过排位赛获取段位星，每个段位晋级星数不同，当前段位星满时可晋级下一段位</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="8">Q8:升级到新的段位时，选择低段位进行排位赛，输掉比赛段位星会减少吗？</view>
+    <view class="detail">
+      <view>不会减少，但会输掉入场费。</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="9">Q9:玩家升到最高段位时，段位还会往上升级吗？</view>
+    <view class="detail">
+      <view>成语猜猜乐最高段位为“最强宗师”，当到达该段位是，段位不会在往上升，但段位星数叠加规则不变，仍然可以进行比较。</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="10">Q10:好友对战胜出会提供奖励吗？</view>
+    <view class="detail">
+      <view>好友对战为好友间的娱乐模式，胜出不会提供奖励，相应的失败也不会损失金币。</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="11">Q11:好友对战需要入场费吗？</view>
+    <view class="detail">
+      <view>不需要，可以直接通过邀请进入好友对战。</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="12">Q12:好友对战需要入场费吗？</view>
+    <view class="detail">
+      <view>金币为0时，可以通过限时领取金币获得奖励；也可以通过进入“个人信息”领取复活币继续游戏，复活币只有在金币为0是可以领取，并且每天只有三次领取机会。</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="13">Q13:金币为0时还可以进行游戏吗？</view>
+    <view class="detail">
+      <view>金币为0时，可以通过限时领取金币获得奖励；也可以通过进入“个人信息”领取复活币继续游戏，复活币只有在金币为0是可以领取，并且每天只有三次领取机会。</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="14">Q14:限时金币如何领取？</view>
+    <view class="detail">
+      <view>每4分钟生成1金币，生成的金币可以随时领取，金币领取后，领取时间重置</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="15">Q15:玩家可以购买金币吗？</view>
+    <view class="detail">
+      <view>目前版本暂不支持金币购买</view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="question" bindtap='change' data-index="16">Q16:什么样的情况被视为放弃比赛？</view>
+    <view class="detail">
+      <view>已经匹配到玩家对战开始，玩家主动操作退出小程序或者因为断网原因无法继续游戏，系统将判定该玩家放弃比赛，并视为挑战失败</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="question" bindtap='change' data-index="17">Q17:对游戏中存在的问题玩家如何反馈？</view>
+    <view class="detail">
+      <view>已经匹配到玩家对战开始，玩家主动操作退出小程序或者因为断网原因无法继续游戏，系统将判定该玩家放弃比赛，并视为挑战失败</view>
+    </view>
+  </view>
+</scroll-view>

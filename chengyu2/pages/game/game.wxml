@@ -1,0 +1,303 @@
+<!-- pages/game/game.wxml-->
+<!-- 排位赛 开屏 -->
+<view class="container" wx:if="{{step==1}}">
+  <view class="step1">
+    <view class="info-box {{leave}}">
+      <image src="{{userInfo['avatarUrl']}}" class="userImg"></image>
+      <view>{{userInfo['nickName']}}</view>
+      <view>{{loadFromPre.levelName}}</view>
+      <view>{{userInfo['city']}}</view>
+      <view class="fee">入场费 {{loadFromPre.coin}}</view>
+    </view>
+    <view class="loading">
+      <image src='../../img/loading.gif'></image>
+    </view>
+  </view>
+  <view class="step2" wx:if='{{pkAnimationDisplay}}'>
+    <view class='pk pk-top'>
+      <view class="info-box-pk box-top">
+        <view>
+          <view>{{userInfo['nickName']}}</view>
+          <view>{{userInfo['levelName']}}</view>
+          <view>来自 {{userInfo['city']}}</view>
+        </view>
+        <image src="{{userInfo['avatarUrl']}}" class="userImg"></image>
+      </view>
+    </view>
+    <view class='pk pk-bottom'>
+      <view class="info-box-pk box-bottom">
+        <image src="{{otherUserInfo['avatarUrl']}}" class="userImg"></image>
+        <view>
+          <view>{{otherUserInfo['nickName']}}</view>
+          <view>{{otherUserInfo['levelName']}}</view>
+          <view>来自 {{otherUserInfo['city']}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="step2-fee">入场费 {{loadFromPre.coin}}</view>
+  </view>
+</view>
+<!--好友对战 开屏-->
+<view class="step3 friend" wx:if="{{step==2}}">
+  <view class="header">
+    <view class="me">
+      <text>{{userInfo.userName}}</text>
+      <image src="{{userInfo['avatarUrl']}}"></image>
+    </view>
+    <view class="show">
+      等待好友应战
+    </view>
+    <view class="it">
+      <text>{{otherUserInfo.userName}}</text>
+      <image src="{{otherUserInfo['avatarUrl']}}"></image>
+    </view>
+  </view>
+  <view class="request">
+    <view bindtap="backGame">放弃</view>
+    <!-- <view>再邀请</view> -->
+  </view>
+</view>
+<!-- pk 对战 -->
+<view class="step3" wx:if="{{step==3}}">
+  <view class="header">
+    <view class="me">
+      <text>{{userInfo.nickName}}</text>
+      <image src="{{userInfo['avatarUrl']}}"></image>
+    </view>
+    <view class="end-time">
+      <view class="wrap">
+        <view class="circle-box">
+          <canvas class="circle" style="z-index: -5; width:60px; height:60px;" canvas-id="canvasCircle"></canvas>
+          <canvas class="circle" style="width:60px; height:60px;" canvas-id="canvasArcCir"></canvas>
+          <view class="draw_btn" bindtap="drawCircle">{{time}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="it">
+      <text>{{otherUserInfo.nickName}}</text>
+      <image src="{{otherUserInfo['avatarUrl']}}"></image>
+    </view>
+  </view>
+  <view>
+    <view class="person-pk">
+      <view class="my-grade">
+        <view class="game-grade">我的分数</view>
+        <view>{{myScore}}</view>
+        <view class="m-score">
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+      <view class="quree" hidden="{{progress === -1}}">
+        <view>{{typeStr[questionsList[progress]['Type']]}}</view>
+        <view>第{{progressStr[progress]}}题</view>
+      </view>
+      <view class="it-grade">
+        <view class="game-grade">他的分数</view>
+        <view>{{otherScore}}</view>
+        <view class="i-score">
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{progress === 4}}" class="doubal">
+    <image src='../../img/doubal.png' class="doubal"></image>
+  </view>
+  <block wx:for="{{questionsList}}" wx:key="{{index}}">
+    <view hidden="{{!(progress === index)}}" class="main t t2">
+      <view wx:if="{{item.Type == 1}}" class="t-img"><image src='{{item.Guess.Pic}}' mode='aspectFill'></image></view>
+      <view wx:if="{{item.Type == 2}}" class="question">{{item.Guess.Question}}</view>
+      <view wx:if="{{item.Type == 3}}" class="t3 question">下面哪个是成语【{{item.Guess.Question}}】的释义？</view>
+      <view wx:if="{{item.Type == 4}}" class="question">{{item.Guess.Question}}</view>
+      <view wx:if="{{item.Type != 3}}">
+        <view class="t-item {{currentOptionsStatus[0]['color']}}" data-index='0' data-answer='D1' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D1}}
+          <image class="img-right {{currentOptionsStatus[0]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[0]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[0]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[0]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[1]['color']}}" data-index='1' data-answer='D2' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D2}}
+          <image class="img-right {{currentOptionsStatus[1]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[1]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[1]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[1]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[2]['color']}}" data-index='2' data-answer='D3' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D3}}
+          <image class="img-right {{currentOptionsStatus[2]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[2]['position'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[2]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[2]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[3]['color']}}" data-index='3' data-answer='D4' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D4}}
+          <image class="img-right {{currentOptionsStatus[3]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[3]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[3]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[3]['color'] === 'wrong'}}"></image>
+        </view>
+      </view>
+      <view wx:else>
+        <view class="t4-item {{currentOptionsStatus[0]['color']}}" data-index='0' data-answer='D1' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D1}}
+          <image class="img-right {{currentOptionsStatus[0]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[0]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[0]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[0]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t4-item {{currentOptionsStatus[1]['color']}}" data-index='1' data-answer='D2' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D2}}
+          <image class="img-right {{currentOptionsStatus[1]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[1]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[1]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[1]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t4-item {{currentOptionsStatus[2]['color']}}" data-index='2' data-answer='D3' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D3}}
+          <image class="img-right {{currentOptionsStatus[2]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[2]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[2]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[2]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t4-item {{currentOptionsStatus[3]['color']}}" data-index='3' data-answer='D4' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D4}}
+          <image class="img-right {{currentOptionsStatus[3]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[3]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[3]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[3]['color'] === 'wrong'}}"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 第一版 看图填词 -->
+    <!-- <view wx:if="{{item.Type == -1}}" hidden="{{!(progress === index)}}" class="main t1">
+      <view class="t1-img">
+        <image src='{{item.Guess.Question}}' mode='aspectFill'></image>
+      </view>
+
+      <view class="choose">
+        <image src="../../img/right.png"></image>
+        <view wx:for="{{imgWords}}" wx:key="{{index}}" data-index="{{index}}" data-wordindex="{{item.index}}" bindtap="back">
+          {{item.word}}
+        </view>
+        <image src="../../img/wrong.png"></image>
+      </view>
+
+      <view class="ti-ku">
+        <view wx:for="{{imgQuestions[index]}}" wx:key="{{index}}" data-index="{{index}}" bindtap="choose">
+          {{item}}
+        </view>
+      </view>
+    </view> -->
+    <!-- 第一版布局 -->
+    <!-- <view wx:if="{{item.Type == 2}}" hidden="{{!(progress === index)}}" class="main t2">
+      <view class="question">{{item.Guess.Question}}</view>
+      <view>
+        <view class="t-item {{currentOptionsStatus[0]['color']}}" data-index='0' data-answer='D1' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D1}}
+          <image class="img-right {{currentOptionsStatus[0]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[0]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[0]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[0]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[1]['color']}}" data-index='1' data-answer='D2' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D2}}
+          <image class="img-right {{currentOptionsStatus[1]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[1]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[1]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[1]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[2]['color']}}" data-index='2' data-answer='D3' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D3}}
+          <image class="img-right {{currentOptionsStatus[2]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[2]['position'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[2]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[2]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[3]['color']}}" data-index='3' data-answer='D4' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D4}}
+          <image class="img-right {{currentOptionsStatus[3]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[3]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[3]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[3]['color'] === 'wrong'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{item.Type == 3}}" hidden="{{!(progress === index)}}" class="main t4">
+      <view class="question">下面哪个是成语【{{item.Guess.Question}}】的释义？</view>
+      <view>
+        <view class="t4-item {{currentOptionsStatus[0]['color']}}" data-index='0' data-answer='D1' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D1}}
+          <image class="img-right {{currentOptionsStatus[0]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[0]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[0]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[0]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t4-item {{currentOptionsStatus[1]['color']}}" data-index='1' data-answer='D2' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D2}}
+          <image class="img-right {{currentOptionsStatus[1]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[1]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[1]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[1]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t4-item {{currentOptionsStatus[2]['color']}}" data-index='2' data-answer='D3' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D3}}
+          <image class="img-right {{currentOptionsStatus[2]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[2]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[2]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[2]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t4-item {{currentOptionsStatus[3]['color']}}" data-index='3' data-answer='D4' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D4}}
+          <image class="img-right {{currentOptionsStatus[3]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[3]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[3]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[3]['color'] === 'wrong'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{item.Type == 4}}" hidden="{{!(progress === index)}}" class="main t3">
+      <view class="question">{{item.Guess.Question}}</view>
+      <view>
+        <view class="t-item {{currentOptionsStatus[0]['color']}}" data-index='0' data-answer='D1' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D1}}
+          <image class="img-right {{currentOptionsStatus[0]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[0]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[0]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[0]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[1]['color']}}" data-index='1' data-answer='D2' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D2}}
+          <image class="img-right {{currentOptionsStatus[1]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[1]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[1]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[1]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[2]['color']}}" data-index='2' data-answer='D3' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D3}}
+          <image class="img-right {{currentOptionsStatus[2]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[2]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[2]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[2]['color'] === 'wrong'}}"></image>
+        </view>
+        <view class="t-item {{currentOptionsStatus[3]['color']}}" data-index='3' data-answer='D4' bindtap='answer'>
+          {{item.Guess.Answers.Answers.D4}}
+          <image class="img-right {{currentOptionsStatus[3]['position']}}" src="../../img/right.png" wx:if="{{currentOptionsStatus[3]['color'] === 'right'}}"></image>
+          <image class="img-wrong {{currentOptionsStatus[3]['position']}}" src="../../img/wrong.png" wx:if="{{currentOptionsStatus[3]['color'] === 'wrong'}}"></image>
+        </view>
+      </view>
+    </view> -->
+  </block>
+  <!-- pk 结果 -->
+  <view hidden="{{!resultDisplay}}" class="main win">
+    <!-- <view class="continue">连续答对3题</view> -->
+    <view>
+      <view hidden="{{!(winType == 1)}}">
+        <image src="../../img/king.png" class="win-img"></image>
+        <image src="../../img/win_word.png" class="win-word"></image>
+      </view>
+      <view hidden="{{!(winType == 0)}}">
+        <image src="../../img/king_lose.png" class="win-img"></image>
+        <image src="../../img/lose_word.png" class="win-word"></image>
+      </view>
+      <view hidden="{{!(RoomType !== 'friends')}}" class="win-score">
+        <view>
+          <image src="../../img/gold.png"></image>
+          <text>{{myCoin}}</text>
+        </view>
+        <view>
+          <image src="../../img/gold.png"></image>
+          <text>{{otherCoin}}</text>
+        </view>
+      </view>
+      <view>
+        <view class="win-continue" hidden="{{!(RoomType !== 'friends')}}" bindtap="againGame">
+          继续挑战
+        </view>
+        <view class="win-continue" hidden="{{!(RoomType === 'friends')}}" bindtap="backGame">
+          返回
+        </view>
+        <view class="win-share" hidden="{{!(winType == 1)}}">
+          炫耀胜利
+          <button class="win-share" open-type="share">炫耀胜利</button>
+        </view>
+        <!-- <view class="win-share-word" hidden="{{!(winType == 1)}}">分享到朋友圈奖励100金</view> -->
+      </view>
+    </view>
+  </view>
+</view>
+<!--等级提升-->
+<view class='modal'>
+  <view class='mask' wx:if='{{!maskDisplay}}'>
+    <view class='content' wx:if='{{!maskDisplay}}' animation='{{animation}}'>
+      <image src="../../img/level_backgound.png" class="level-bg"></image>
+      <view class="level-word">恭喜你升级到{{upgradeLevel}}</view>
+      <view class="level-makeSure" bindtap='close'>确定</view>
+    </view>
+  </view>
+</view>

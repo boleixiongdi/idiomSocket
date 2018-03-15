@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/game/game",
+    "pages/pay/pay",
+    "pages/rank/rank",
+    "pages/mygrade/mygrade",
+    "pages/personal/personal",
+    "pages/question/question",
+    "pages/demo/demo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "成语猜猜乐",
+    "navigationBarTextStyle": "black",
+    "disableScroll": true
+  }
+}

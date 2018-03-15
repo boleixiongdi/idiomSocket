@@ -1,0 +1,57 @@
+<!--pages/pay/pay.wxml-->
+<view>
+    <view class="title">
+        <image class="person_img" src="{{userImg}}"></image>
+        <text>{{name}}</text>
+    </view>
+    <view class="describe"><!--主体描述-->
+        项目开发不易，客官赏个银子吧~
+    </view>
+    <view class='main'><!--打赏页面的主体页面-->
+        <formid-custom bind:taphandle="toPay" data-state="199">
+            <view class="pay_item">
+                <view>1.99</view>
+                <view>长长久久</view>
+            </view>
+        </formid-custom>
+        <formid-custom bind:taphandle="toPay" data-state="520">
+            <view class="pay_item">
+                <view>5.20</view>
+                <view>我爱你</view>
+            </view>
+        </formid-custom>
+
+        <formid-custom bind:taphandle="toPay" data-state="888">
+            <view class="pay_item">
+                <view>8.88</view>
+                <view>大发特发</view>
+            </view>
+        </formid-custom>
+        <formid-custom bind:taphandle="toPay" data-state="1010">
+            <view class="pay_item">
+                <view>10.10</view>
+                <view>十全十美</view>
+            </view>
+        </formid-custom>
+        <formid-custom bind:taphandle="toPay" data-state="1314">
+            <view class="pay_item">
+                <view>13.14</view>
+                <view>一生一世</view>
+            </view>
+        </formid-custom>
+        <formid-custom bind:taphandle="toPay" data-state="2018">
+            <view class="pay_item">
+                <view>20.18</view>
+                <view>2018快乐</view>
+            </view>
+        </formid-custom>
+    </view>
+    <view class='footer'>
+        <view class='footer_word'>
+            <text>{{num}}</text>人已赞赏
+        </view>
+        <view class="footer_image">
+            <image wx:for="{{person}}" wx:key="{{index}}" src="{{userImg}}"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,33 @@
+/* pages/question/question.wxss */
+page{
+  width:100%;
+  height:100%;
+  background:rgba(249,249,249,1);
+  padding-top: 40rpx;
+}
+.question{
+  width:690rpx;
+  min-height:80rpx;
+  line-height: 80rpx;
+  padding-left: 50rpx;
+  margin: 0 auto;
+  box-sizing: border-box; 
+  background:rgba(255,255,255,1);
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(0,0,0,1);
+}
+.detail{
+  width:690rpx;
+  margin: 3rpx auto 20rpx;
+  padding:20rpx 50rpx;
+  background:rgba(255,255,255,1);
+  box-sizing: border-box;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(0,0,0,1);
+}
+scroll-view{
+  width:100%;
+  height:100%;
+}

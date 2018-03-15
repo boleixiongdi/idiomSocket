@@ -1,0 +1,89 @@
+<!--pages/personal/personal.wxml-->
+<view class="about-me">
+  <view class="header">
+    <view>
+      <view>
+        {{userInfo.LevelName||userHistory.LevelName}}
+      </view>
+    </view>
+    <view>
+      <view>{{userInfo.NickName||userHistory.NickName}}</view>
+      <image src="{{userInfo['AvatarUrl']||userHistory.AvatarUrl}}"></image>
+    </view>
+    <view>
+      <image src="../../img/gold.png"></image>
+      <text>{{userInfo['Coin']||userHistory.Coin}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="choose">
+  <formid-custom bind:taphandle="changeActive" data-state="1" class='{{active[0]}}'>
+    <view>个人生涯</view>
+  </formid-custom>
+  <formid-custom bind:taphandle="changeActive" data-state="2" class='{{active[1]}}'>
+    <view>信息中心</view>
+  </formid-custom>
+</view>
+<view wx:if="{{switch==1}}">
+  <view class="history">
+    <view>
+      <text>游戏ID：</text>
+      <text>{{userHistory.UserID}}</text>
+    </view>
+    <view>
+      <text>总场次：</text>
+      <text>{{userHistory.PkCount||0}}</text>
+    </view>
+    <view>
+      <text>胜场：</text>
+      <text>{{userHistory.WinCount}}</text>
+    </view>
+    <view>
+      <text>胜率：</text>
+      <text>{{userHistory.WinRate}}</text>
+    </view>
+  </view>
+  <view class="bottom">
+    <formid-custom bind:taphandle="share" class="relative">
+      <view class="share">炫耀成绩</view>
+      <button open-type='share' class="shareBtn">分享</button>
+    </formid-custom>
+    <formid-custom bind:taphandle="relive">
+      <view class="relive">复活金币</view>
+    </formid-custom>
+  </view>
+</view>
+<view wx:else class="box2">
+  <view class="his-bar " style="{{barHeight}}">
+    <formid-custom bind:taphandle="watchDetail" data-state="1">
+      <image src="../../img/bar.png"></image>
+      <text>历史公告</text>
+    </formid-custom>
+    <scroll-view scroll-y="true" class="scroll-window" wx:if="{{barShow}}">
+      <view class="his-item">
+        <view class='item' wx:for="{{historyBar}}" wx:key="index">
+          <view class="dot"></view>
+          <view class="item-word">{{item.Content}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="charge" style="{{coinheight}}">
+    <formid-custom bind:taphandle="watchDetail" data-state="2">
+      <image src="../../img/charge.png"></image>
+      <text>金币记录</text>
+    </formid-custom>
+
+    <scroll-view scroll-y="true" bindscrolltolower="loadCoinHistory" class="scroll-window"  wx:if="{{coinShow}}">
+      <view class="his-item">
+        <view class='item' wx:for="{{coinHistory}}" wx:key="index">
+          <view class="dot"></view>
+          <view class="item-word">{{item.Comment}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <image src="../../img/link_service.png" class="link_service"></image>
+  <button open-type='contact' class="link_service opacity">111</button>
+</view>

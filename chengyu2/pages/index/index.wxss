@@ -1,0 +1,198 @@
+page{
+  background:#26347C;
+  height:100%;
+}
+.header{
+  padding: 0 82rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header image{
+  width:46rpx;
+  height:49rpx;
+}
+.header>view{
+  text-align: center;
+}
+.header>view view{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+}
+
+.header>view:nth-child(2) view{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+  padding:20rpx 0 11rpx;
+}
+.header>view:nth-child(2) image{
+  width:131rpx;
+  height:131rpx;
+  border:2rpx solid #fff; 
+  border-radius: 50%;
+}
+.grade{
+  height:70rpx; 
+  background:rgba(47,64,145,1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 72rpx;
+}
+.lv{
+  display: flex;
+  align-items: center;
+}
+.lv>text{
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium;
+  padding-right:11rpx;
+  color:rgba(255,255,255,1);
+}
+.lv .bg{
+  position: relative;
+  height:18rpx;
+  width:110rpx;
+}
+.lv .bg view:nth-child(1){
+  position: absolute;
+  left:0;
+  top:0;
+  height:18rpx;
+  width:110rpx;
+  background:#fff;
+}
+.lv .bg view:nth-child(2){
+  position: absolute;
+  left:0;
+  top:0;
+  height:18rpx;
+  width:22rpx;
+  background:#6C7FFB;
+}
+.gold image{
+  width:30rpx;
+  height:30rpx;
+}
+.gold text{
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255,255,255,1);
+  padding:0 15rpx; 
+}
+
+.click-item{
+  width:690rpx;
+  height:720rpx; 
+  background:rgba(116,154,250,1);
+  border-radius: 30rpx;
+  margin: 20rpx auto;
+}
+.item{
+  height:240rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item image{
+  width:130rpx;
+  height:131rpx;
+}
+.click-item>formid-custom:nth-child(2) .item{
+  background: #6278E9;
+}
+.item>view{
+  text-align: left;
+  width:230rpx;
+  color:#fff;
+  margin-left:46rpx;
+}
+.item .person-num view{
+  
+}
+.item .person-num text{
+  display: inline-block;
+  width:100%;
+  font-size: 25rpx;
+  color:#fff;
+}
+.buttom{
+  margin-top: 13rpx;
+  width:690rpx;
+  height:77rpx; 
+  background:rgba(110,147,243,1);
+  border-radius: 34rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.buttom .btm-word{
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(254,254,254,1);
+  margin-right: 39rpx;
+}
+.btn-right{
+  margin-top: -16rpx;
+}
+.award image{
+  width:20rpx;
+  height:20rpx;
+}
+.award text{
+  font-size:22rpx;
+  line-height: 22rpx;
+  padding-left: 10rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+}
+.buttom .time {
+  position: relative;
+  width:107rpx;
+  height:24.3rpx;
+}
+.buttom .time text{
+  position: absolute;
+  left:0;
+  top:0;
+  width:107rpx;
+  height:24.3rpx;
+  line-height: 24.3rpx;
+  text-align: center;
+  color: #333;
+  font-size:22rpx;
+  font-family:PingFang-SC-Regular;
+}
+.buttom .time view{
+  position: absolute;
+  left:0;
+  top:0;
+}
+.buttom .time>view:nth-child(1){
+  width:107rpx;
+  height:24.3rpx;
+  border-radius: 12.15rpx;
+  background:#ddd;
+  overflow: hidden;
+}
+.buttom .time>view>view{
+  /* width:22rpx; */
+  height:24.3rpx;
+  border-top-left-radius: 12.15rpx;
+  border-bottom-left-radius: 12.15rpx;
+  background:#FCC423; 
+}
+
+.shareBtn{
+  position: absolute;
+  left:0;
+  top:0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  opacity:0;
+}

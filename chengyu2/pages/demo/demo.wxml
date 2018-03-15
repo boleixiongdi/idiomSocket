@@ -1,0 +1,38 @@
+<!--pages/demo/demo.wxml-->
+<text>pages/demo/demo.wxml</text>
+<view  class="main win">
+    <!-- <view class="continue">连续答对3题</view> -->
+    <view>
+      <view >
+        <image src="../../img/king.png" class="win-img"></image>
+        <image src="../../img/win_word.png" class="win-word"></image>
+      </view>
+      <view hidden="{{!(winType == 0)}}">
+        <image src="../../img/king_lose.png" class="win-img"></image>
+        <image src="../../img/lose_word.png" class="win-word"></image>
+      </view>
+      <view hidden="{{!(RoomType !== 'friends')}}" class="win-score">
+        <view>
+          <image src="../../img/gold.png"></image>
+          <text>{{myCoin}}+50</text>
+        </view>
+        <view>
+          <image src="../../img/gold.png"></image>
+          <text>{{otherCoin}}-30</text>
+        </view>
+      </view>
+      <view>
+        <view class="win-continue" hidden="{{!(RoomType !== 'friends')}}" bindtap="againGame">
+          继续挑战
+        </view>
+        <view class="win-continue" hidden="{{!(RoomType === 'friends')}}" bindtap="backGame">
+          返回
+        </view>
+        <view class="win-share" hidden="{{!(winType == 1)}}">
+          炫耀胜利
+          <button class="win-share" open-type="share">炫耀胜利</button>
+        </view>
+        <!-- <view class="win-share-word" hidden="{{!(winType == 1)}}">分享到朋友圈奖励100金</view> -->
+      </view>
+    </view>
+  </view>
